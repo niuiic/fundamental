@@ -1,0 +1,3 @@
+[workspace]
+members = ["packages/algorithm", "packages/design_pattern", 'packages/leetcode']
+resolver = "2"

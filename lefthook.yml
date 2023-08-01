@@ -1,0 +1,6 @@
+pre-commit:
+  parallel: true
+  commands:
+    test:
+      glob: "*.rs"
+      run: cargo test
