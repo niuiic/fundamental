@@ -1,3 +1,6 @@
+#[cfg(test)]
+mod test;
+
 #[allow(dead_code)]
 fn solution(s: String) -> String {
     let mut memo = vec![vec![false; s.len()]; s.len()];
@@ -26,23 +29,4 @@ fn solution(s: String) -> String {
     }
 
     (&s[pos.0..=pos.1]).to_string()
-}
-
-#[cfg(test)]
-mod test {
-    use super::*;
-
-    fn do_test(input: &str, output: &str) {
-        assert_eq!(solution(input.to_string()), output.to_string());
-    }
-
-    #[test]
-    fn case1() {
-        do_test("babad", "bab");
-    }
-
-    #[test]
-    fn case2() {
-        do_test("cbbd", "bb");
-    }
 }

@@ -1,5 +1,8 @@
 use std::collections::HashSet;
 
+#[cfg(test)]
+mod test;
+
 #[allow(dead_code)]
 fn solution(n: i32) -> Vec<String> {
     let n = n as usize;
@@ -40,42 +43,4 @@ fn solution(n: i32) -> Vec<String> {
     }
 
     memo[n].drain().collect()
-}
-
-#[cfg(test)]
-mod test {
-    use super::*;
-
-    fn do_test(input: i32, output: Vec<&str>) {
-        let mut result = solution(input);
-        let mut answer = output
-            .iter()
-            .map(|x| x.to_string())
-            .collect::<Vec<String>>();
-        result.sort();
-        answer.sort();
-
-        assert_eq!(result, answer);
-    }
-
-    #[test]
-    fn case1() {
-        do_test(3, vec!["((()))", "(()())", "(())()", "()(())", "()()()"]);
-    }
-
-    #[test]
-    fn case2() {
-        do_test(1, vec!["()"]);
-    }
-
-    #[test]
-    fn case3() {
-        do_test(
-            4,
-            vec![
-                "(((())))", "((()()))", "((())())", "((()))()", "(()(()))", "(()()())", "(()())()",
-                "(())(())", "(())()()", "()((()))", "()(()())", "()(())()", "()()(())", "()()()()",
-            ],
-        );
-    }
 }
