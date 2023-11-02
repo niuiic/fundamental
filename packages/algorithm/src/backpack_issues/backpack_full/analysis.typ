@@ -6,7 +6,7 @@ $
 f(x, y) = cases(
   #t[0] x = 0,
   #t[0] y < y_x,
-  #t[$max(f(x - 1, y - i * y_x) + i * v_x), i in [0, x]$] "other",
+  #t[$max(f(x - 1, y - i * y_x) + i * v_x), i in [0, y / y_x]$] "other",
 )
 $
 
