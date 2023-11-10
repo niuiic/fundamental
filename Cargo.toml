@@ -1,3 +1,3 @@
 [workspace]
-members = ["packages/algorithm", "packages/design_pattern", 'packages/leetcode']
+members = ["crates/algorithm", "crates/design_pattern", 'crates/leetcode']
 resolver = "2"
