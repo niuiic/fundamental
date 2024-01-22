@@ -11,10 +11,13 @@ struct Item {
 #[allow(dead_code)]
 fn solution1(space: i32, items: Vec<Item>) -> i32 {
     fn dp(x: usize, y: i32, items: &Vec<Item>) -> i32 {
-        let y_x = if x > 0 { items[x - 1].space } else { 0 };
-        let v_x = if x > 0 { items[x - 1].value } else { 0 };
+        if x == 0 {
+            return 0;
+        }
 
-        if x == 0 || y < y_x {
+        let y_x = items[x - 1].space;
+        let v_x = items[x - 1].value;
+        if y < y_x {
             return 0;
         }
 
@@ -29,23 +32,23 @@ fn solution2(space: i32, items: Vec<Item>) -> i32 {
     let mut memo = Vec::<(/* space */ i32, /* value */ i32)>::new();
 
     for x in 0..items.len() {
-        let mut temp = Vec::<(/* space */ i32, /* value */ i32)>::new();
+        let mut memo_t = Vec::<(/* space */ i32, /* value */ i32)>::new();
         let y_x = items[x].space;
         let v_x = items[x].value;
 
         if x == 0 {
-            temp.push((space - y_x, v_x));
-            temp.push((space, 0));
+            memo_t.push((space - y_x, v_x));
+            memo_t.push((space, 0));
         } else {
             memo.iter().for_each(|z| {
                 if z.0 >= y_x {
-                    temp.push((z.0 - y_x, z.1 + v_x));
+                    memo_t.push((z.0 - y_x, z.1 + v_x));
                 }
-                temp.push(*z);
+                memo_t.push(*z);
             })
         }
 
-        memo = temp;
+        memo = memo_t;
     }
 
     memo.iter().map(|z| z.1).max().unwrap()
