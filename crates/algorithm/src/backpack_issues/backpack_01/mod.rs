@@ -1,5 +1,3 @@
-use std::{usize, vec};
-
 #[cfg(test)]
 mod test;
 
@@ -18,13 +16,13 @@ fn solution1(space: i32, items: Vec<Item>) -> i32 {
         let y_x = items[x - 1].space;
         let v_x = items[x - 1].value;
         if y < y_x {
-            return 0;
+            return dp(x - 1, y, items);
         }
 
         dp(x - 1, y, items).max(dp(x - 1, y - y_x, items) + v_x)
     }
 
-    dp(items.len() as usize, space, &items)
+    dp(items.len(), space, &items)
 }
 
 #[allow(dead_code)]
