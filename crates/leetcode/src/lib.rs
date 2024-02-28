@@ -11,6 +11,7 @@ mod q256;
 mod q265;
 mod q279;
 mod q280;
+mod q3;
 mod q45;
 mod q5;
 mod q624;
