@@ -2,7 +2,7 @@
 mod test;
 
 #[allow(dead_code)]
-pub fn solution(costs: Vec<Vec<i32>>) -> i32 {
+fn solution(costs: Vec<Vec<i32>>) -> i32 {
     let mut memo = [0; 3];
 
     for i in 0..costs.len() {

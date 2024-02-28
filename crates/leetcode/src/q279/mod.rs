@@ -2,7 +2,7 @@
 mod test;
 
 #[allow(dead_code)]
-pub fn solution(n: i32) -> i32 {
+fn solution(n: i32) -> i32 {
     let n = n as usize;
     let mut memo = vec![0; n + 1];
 
