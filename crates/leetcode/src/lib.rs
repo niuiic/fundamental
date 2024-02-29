@@ -15,3 +15,4 @@ mod q3;
 mod q45;
 mod q5;
 mod q624;
+mod q7;
