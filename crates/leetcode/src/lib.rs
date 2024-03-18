@@ -15,6 +15,7 @@ mod q280;
 mod q3;
 mod q45;
 mod q5;
+mod q55;
 mod q624;
 mod q7;
 mod q8;
